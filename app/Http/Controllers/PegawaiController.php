@@ -19,6 +19,6 @@ class PegawaiController extends Controller
     }
     function hapusJadi(Request $request, user $user){
         user::where('id', $user->id)->delete();
-        return redirect('/data-pegawai')->with('toast_info', 'Akun Barang Barhasil Diblokir');
+        return redirect('/data-pegawai')->with('toast_error', 'Akun Barang Barhasil Diblokir');
     }
 }

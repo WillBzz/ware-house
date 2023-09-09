@@ -38,6 +38,6 @@ class KategoriController extends Controller
     }
     function hapusJadi(Request $request, Category $category){
         Category::where('id', $category->id)->delete();
-        return redirect('/kategori-barang')->with('toast_info', 'Kategori Barhasil Dihapus');
+        return redirect('/kategori-barang')->with('toast_error', 'Kategori Berhasil Dihapus');
     }
 }

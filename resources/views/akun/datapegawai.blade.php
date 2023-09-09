@@ -1,12 +1,9 @@
 @extends('layouts.master')
 @section('container')
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h2>Data Pegawai</h2>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#exampleModal">
-            <i class="fas fa-plus"></i>&nbsp;
-            Tambah Data
-        </button>
+<h1 class="h3 mb-0 text-gray-800">Data Akun Pegawai</h1>
+<div class="d-sm-flex mb-4">
+    <!-- Button trigger modal -->
+    <a href="#" class="btn btn-secondary mr-4">Akun Yang Diblokir</a>
         @include('akun.modal.pegawaiModal')
     </div>
     <div class="card shadow mb-4">

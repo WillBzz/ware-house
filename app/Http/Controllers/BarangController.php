@@ -30,7 +30,8 @@ class BarangController extends Controller
         return view('dashboard.barang.daftarbarang', compact(['categories', 'aksi', 'target','products']));
     }
     function editBarang(Request $request, product $barang){
-        product::where('id', $barang->id)->update([
+        // dd($request);
+        product::where('id', $request->id)->update([
             'name' => $request->nama,
             'category_id' => $request->kateg,
             'qty' => $request->jumlah,
@@ -46,7 +47,7 @@ class BarangController extends Controller
         return view('dashboard.barang.daftarbarang', compact(['products', 'aksi', 'target', 'categories']));
     }
     function hapusBarang(Request $request, product $barang){
-        product::where('id', $barang->id)->delete();
-        return redirect('/daftar-barang')->with('toast_info', 'Data Barang Barhasil Dihapus');
+        product::where('id', $request->id)->delete();
+        return redirect('/daftar-barang')->with('toast_error', 'Data Barang Barhasil Dihapus');
     }
 }

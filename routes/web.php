@@ -22,14 +22,15 @@ Route::get('/',[DashboardController::class,'index']);
 
 Route::get('/daftar-barang', [BarangController::class, 'index'])->name('barang');
 Route::post('/daftar-barang/baru', [BarangController::class, 'tambah']);
-Route::get('/daftar-barang/edit/{barang}', [BarangController::class, 'edit']);
-Route::post('/daftar-barang/edit/{barang}', [BarangController::class, 'editBarang']);
+// Route::get('/daftar-barang/edit/{barang}', [BarangController::class, 'edit']);
+// Route::post('/daftar-barang/edit/{barang}', [BarangController::class, 'editBarang']);
+Route::post('/daftar-barang/edit', [BarangController::class, 'editBarang']);
+// Route::get('/daftar-barang/hapus/{barang}', [BarangController::class, 'hapus']);
+// Route::post('/daftar-barang/hapus/{barang}', [BarangController::class, 'hapusBarang']);
+Route::post('/daftar-barang/hapus', [BarangController::class, 'hapusBarang']);
 
-Route::get('/daftar-barang/hapus/{barang}', [BarangController::class, 'hapus']);
-Route::post('/daftar-barang/hapus/{barang}', [BarangController::class, 'hapusBarang']);
 Route::get('/kategori-barang', [KategoriController::class, 'index']);
 Route::post('/kategori-barang/tambah', [KategoriController::class, 'tambah']);
-
 Route::get('/kategori-barang/edit/{category}', [KategoriController::class, 'edit']);
 Route::post('/kategori-barang/edit/{category}', [KategoriController::class, 'editJadi']);
 Route::get('/kategori-barang/hapus/{category}', [KategoriController::class, 'hapus']);
