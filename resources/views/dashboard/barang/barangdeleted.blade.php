@@ -1,16 +1,9 @@
 @extends('layouts.master')
 @section('container')
-<h1 class="h3 mb-0 text-gray-800 mb-2">Data Barang</h1>
+<h1 class="h3 mb-0 text-gray-800 mb-2">Data Barang Yang Telah Dihapus</h1>
 <div class="d-sm-flex mb-4">
     <!-- Button trigger modal -->
-    <a href="/daftar-barang/deleted" class="btn btn-secondary mr-4">Data Yang Dihapus</a>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahModal">
-        <i class="fas fa-plus"></i>&nbsp;
-        Tambah Barang
-    </button>
-
-    <!-- Modal -->
-    @include('dashboard.barang.modal.barangModal')
+    <a href="/daftar-barang" class="btn btn-secondary mr-4">Kembali</a>
 </div>
 
 <div class="card shadow mb-4">
@@ -28,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($products as $product)
+                    @foreach ($deletedbarang as $product)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $product->name }}</td>
@@ -36,8 +29,7 @@
                         <td>{{ $product->qty }}</td>
                         <td>Rp. {{ $product->price }}</td>
                         <td>
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="{{ $product->id }}" data-bs-name="{{ $product->name }}" data-bs-kateg="{{$product->Category->name}}" data-bs-qty="{{ $product->qty }}" data-bs-price="{{ $product->price }}">Edit</button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal" data-bs-hapus="{{ $product->id }}" data-bs-nama="{{ $product->name }}">Hapus</button>
+                            <a href="/daftar-barang/restore/{{ $product->id }}" class="btn btn-warning">Pulihkan</a>
                         </td>
                     </tr>
                     @endforeach
@@ -47,6 +39,5 @@
         </div>
     </div>
 </div>
-<script src="{{ asset("js/modal/modalBarang.js") }}"></script>
 @include('sweetalert::alert')
 @endsection

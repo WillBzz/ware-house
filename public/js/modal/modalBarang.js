@@ -49,5 +49,5 @@ hapusModal.addEventListener('show.bs.modal', function (event) {
     var inputID = hapusModal.querySelector('.modal-body input#id')
     var inputnama = hapusModal.querySelector('.modal-body label#name')
     inputID.value = id
-    inputnama.textContent = "Apakah anda yakin ingin menghapus " + nama
+    inputnama.textContent = "Apakah anda yakin ingin menghapus barang" + nama
 });

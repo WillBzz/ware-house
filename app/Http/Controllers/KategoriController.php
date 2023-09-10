@@ -16,7 +16,7 @@ class KategoriController extends Controller
         Category::create([
             'name' => $request->nama
         ]);
-        return redirect('kategori-barang')->with('toast_success', 'Kategori Barhasil Ditambahkan');
+        return redirect('kategori-barang')->with('toast_success', 'Kategori Berhasil Ditambahkan');
     }
     function edit(Category $category){
         $aksi = 'edit';
@@ -25,10 +25,10 @@ class KategoriController extends Controller
         return view('dashboard.barang.kategori', compact(['categories', 'aksi', 'target']));
     }
     function editJadi(Request $request, Category $category){
-        Category::where('id', $category->id)->update([
+        Category::where('id', $request->id)->update([
             'name' => $request->nama
         ]);
-        return redirect('/kategori-barang')->with('toast_success', 'Kategori Barhasil Diedit');
+        return redirect('/kategori-barang')->with('toast_success', 'Kategori Berhasil Diedit');
     }
     function hapus(Category $category){
         $aksi = 'hapus';
@@ -37,7 +37,16 @@ class KategoriController extends Controller
         return view('dashboard.barang.kategori', compact(['categories', 'aksi', 'target']));
     }
     function hapusJadi(Request $request, Category $category){
-        Category::where('id', $category->id)->delete();
+        Category::where('id', $request->id)->delete();
         return redirect('/kategori-barang')->with('toast_error', 'Kategori Berhasil Dihapus');
+    }
+    function deleted(){
+        $categorydelete = Category::onlyTrashed()->get();
+        return view('dashboard.barang.kategorideleted', ['categorydelete' => $categorydelete]);
+    }
+    function restore($product_id){
+        $categorydelete = Category::where('id', $product_id)->withTrashed()->first();
+        $categorydelete->restore();
+        return redirect('/kategori-barang')->with('toast_success', 'Kategori Berhasil Dipulihkan');
     }
 }
