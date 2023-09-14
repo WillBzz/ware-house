@@ -17,34 +17,18 @@ class BarangController extends Controller
         Product::create([
             'name' => $request->nama,
             'category_id' => $request->kateg,
-            'qty' => $request->jumlah,
-            'price' => $request->harga
+            'qty' => $request->jumlah
         ]);
         return redirect('daftar-barang')->with('toast_success', 'Data Barang Berhasil Ditambahkan');
-    }
-    function edit(Product $barang){
-        $aksi = 'edit';
-        $target = $barang;
-        $categories = Category::where('id', '!=',$target->Category->id)->get();
-        $products = Product::select('*')->get();
-        return view('dashboard.barang.daftarbarang', compact(['categories', 'aksi', 'target','products']));
     }
     function editBarang(Request $request, Product $barang){
         // dd($request);
         Product::where('id', $request->id)->update([
             'name' => $request->nama,
             'category_id' => $request->kateg,
-            'qty' => $request->jumlah,
-            'price' => $request->harga
+            'qty' => $request->jumlah
         ]);
         return redirect('/daftar-barang')->with('toast_success', 'Data Barang Berhasil Diedit');
-    }
-    function hapus(Product $barang){
-        $aksi = 'hapus';
-        $target = $barang;
-        $products = Product::select('*')->get();
-        $categories = Category::select('*')->get();
-        return view('dashboard.barang.daftarbarang', compact(['products', 'aksi', 'target', 'categories']));
     }
     function hapusBarang(Request $request, Product $barang){
         Product::where('id', $request->id)->delete();

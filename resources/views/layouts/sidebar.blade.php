@@ -3,9 +3,9 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-warehouse"></i>
+            <i class="fas fa-home"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">S<span class="text-lowercase">i</span>M<span
+        <div class="sidebar-brand-text mx-2">S<span class="text-lowercase">i</span>M<span
                 class="text-lowercase">agang</span></div>
     </a>
 
@@ -60,7 +60,6 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Data Akun :</h6>
                 <a class="collapse-item" href="/data-pegawai">Pegawai</a>
-                <a class="collapse-item" href="#">Pemasok</a>
             </div>
         </div>
     </li>

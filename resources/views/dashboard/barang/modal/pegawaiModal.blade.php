@@ -15,7 +15,7 @@
                             <input type="text" class="form-control" id="name" name="nama" autocomplete="off" readonly>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         </div>
                     </form>
                 </div>
@@ -40,7 +40,7 @@
                             <input type="text" class="form-control" id="id" name="id" autocomplete="off" readonly hidden>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                             <input type="submit" class="btn btn-danger" value="Blokir">
                         </div>
                     </form>

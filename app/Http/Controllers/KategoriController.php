@@ -18,23 +18,11 @@ class KategoriController extends Controller
         ]);
         return redirect('kategori-barang')->with('toast_success', 'Kategori Berhasil Ditambahkan');
     }
-    function edit(Category $category){
-        $aksi = 'edit';
-        $target = $category;
-        $categories = Category::get();
-        return view('dashboard.barang.kategori', compact(['categories', 'aksi', 'target']));
-    }
     function editJadi(Request $request, Category $category){
         Category::where('id', $request->id)->update([
             'name' => $request->nama
         ]);
         return redirect('/kategori-barang')->with('toast_success', 'Kategori Berhasil Diedit');
-    }
-    function hapus(Category $category){
-        $aksi = 'hapus';
-        $target = $category;
-        $categories = Category::get();
-        return view('dashboard.barang.kategori', compact(['categories', 'aksi', 'target']));
     }
     function hapusJadi(Request $request, Category $category){
         Category::where('id', $request->id)->delete();

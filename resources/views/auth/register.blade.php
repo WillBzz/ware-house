@@ -131,7 +131,7 @@
                             <<div class="form-group mb-3">
                                 <div class="input-group input-group-merge input-group-alternative">
                                     <input id="password-confirm" name="password_confirmation" class="form-control"
-                                        placeholder="Password" type="password" required>
+                                        placeholder=" Confirm Password" type="password" required>
                                 </div>
                             </div>
                     <div class="text-center">

@@ -16,7 +16,6 @@
                         <th>Nama Produk</th>
                         <th>Kategori</th>
                         <th>Stok Produk</th>
-                        <th>Harga Produk</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -27,7 +26,6 @@
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->Category->name }}</td>
                         <td>{{ $product->qty }}</td>
-                        <td>Rp. {{ $product->price }}</td>
                         <td>
                             <a href="/daftar-barang/restore/{{ $product->id }}" class="btn btn-warning">Pulihkan</a>
                         </td>

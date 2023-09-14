@@ -11,23 +11,11 @@ class PegawaiController extends Controller
         $users = user::get();
         return view('akun.datapegawai', compact('users'));
     }
-    function detail(user $users){
-        $aksi = 'detail';
-        $target = $users;
-        $categories = user::get();
-        return view('akun.datapegawai', compact(['categories', 'aksi', 'target']));
-    }
     function detailJadi(Request $request, user $users){
         user::where('id', $request->id)->update([
             'name' => $request->nama
         ]);
         return redirect('/data-pegawai');
-    }
-    function hapus(user $user){
-        $aksi = 'hapus';
-        $target = $user;
-        $users = user::get();
-        return view('akun.datapegawai', compact(['users', 'aksi', 'target']));
     }
     function hapusJadi(Request $request, user $user){
         user::where('id', $request->id)->delete();

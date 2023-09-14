@@ -22,14 +22,11 @@ editModal.addEventListener('show.bs.modal', function (event) {
     var name = button.getAttribute('data-bs-name')
     var kateg = button.getAttribute('data-bs-kateg')
     var jumlah = button.getAttribute('data-bs-qty')
-    var harga = button.getAttribute('data-bs-price')
     var inputID = editModal.querySelector('.modal-body input#id')
     var inputname = editModal.querySelector('.modal-body input#name')
     var kategs = editModal.querySelectorAll('.modal-body select option')
     var jumlahs = editModal.querySelector('.modal-body input#jumlah')
-    var harganya = editModal.querySelector('.modal-body input#harga')
     jumlahs.value = jumlah
-    harganya.value = harga
     kategs.forEach(element => {
         if (element.innerHTML == kateg) {
             element.setAttribute('selected', true)
@@ -49,5 +46,5 @@ hapusModal.addEventListener('show.bs.modal', function (event) {
     var inputID = hapusModal.querySelector('.modal-body input#id')
     var inputnama = hapusModal.querySelector('.modal-body label#name')
     inputID.value = id
-    inputnama.textContent = "Apakah anda yakin ingin menghapus barang" + nama
+    inputnama.textContent = "Apakah anda yakin ingin menghapus barang " + nama
 });

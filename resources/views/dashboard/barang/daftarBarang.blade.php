@@ -23,7 +23,6 @@
                         <th>Nama Produk</th>
                         <th>Kategori</th>
                         <th>Stok Produk</th>
-                        <th>Harga Produk</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -34,9 +33,8 @@
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->Category->name }}</td>
                         <td>{{ $product->qty }}</td>
-                        <td>Rp. {{ $product->price }}</td>
                         <td>
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="{{ $product->id }}" data-bs-name="{{ $product->name }}" data-bs-kateg="{{$product->Category->name}}" data-bs-qty="{{ $product->qty }}" data-bs-price="{{ $product->price }}">Edit</button>
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="{{ $product->id }}" data-bs-name="{{ $product->name }}" data-bs-kateg="{{$product->Category->name}}" data-bs-qty="{{ $product->qty }}">Edit</button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal" data-bs-hapus="{{ $product->id }}" data-bs-nama="{{ $product->name }}">Hapus</button>
                         </td>
                     </tr>
