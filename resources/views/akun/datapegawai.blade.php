@@ -1,4 +1,4 @@
-@extends('layouts.master')
+ @extends('layouts.master')
 @section('container')
 <h1 class="h3 mb-0 text-gray-800 mb-2">Data Akun Pegawai</h1>
 <div class="d-sm-flex mb-4">

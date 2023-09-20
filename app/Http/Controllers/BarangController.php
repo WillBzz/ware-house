@@ -15,6 +15,7 @@ class BarangController extends Controller
     }
     function tambah(Request $request){
         Product::create([
+            'kode' => $request->kode,
             'name' => $request->nama,
             'category_id' => $request->kateg,
             'qty' => $request->jumlah

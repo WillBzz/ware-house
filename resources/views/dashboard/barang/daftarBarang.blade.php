@@ -20,6 +20,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Kode Barang</th>
                         <th>Nama Produk</th>
                         <th>Kategori</th>
                         <th>Stok Produk</th>
@@ -30,11 +31,12 @@
                     @foreach ($products as $product)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $product->kode }}</td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->Category->name }}</td>
                         <td>{{ $product->qty }}</td>
                         <td>
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="{{ $product->id }}" data-bs-name="{{ $product->name }}" data-bs-kateg="{{$product->Category->name}}" data-bs-qty="{{ $product->qty }}">Edit</button>
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="{{ $product->id }}" data-bs-code="{{ $product->kode }}" data-bs-name="{{ $product->name }}" data-bs-kateg="{{$product->Category->name}}" data-bs-qty="{{ $product->qty }}">Edit</button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal" data-bs-hapus="{{ $product->id }}" data-bs-nama="{{ $product->name }}">Hapus</button>
                         </td>
                     </tr>

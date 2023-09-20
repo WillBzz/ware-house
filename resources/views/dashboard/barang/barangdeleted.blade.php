@@ -13,6 +13,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Kode Barang</th>
                         <th>Nama Produk</th>
                         <th>Kategori</th>
                         <th>Stok Produk</th>
@@ -23,6 +24,7 @@
                     @foreach ($deletedbarang as $product)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $product->kode }}</td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->Category->name }}</td>
                         <td>{{ $product->qty }}</td>
