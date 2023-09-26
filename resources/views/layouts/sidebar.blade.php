@@ -50,9 +50,9 @@
     </div>
     <!-- Nav Item - Accounts -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-            aria-controls="collapsePages">
-            
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+            aria-expanded="true" aria-controls="collapsePages">
+
             <i class="fas fa-fw fa-user"></i>
             <span>Akun</span>
         </a>
@@ -63,7 +63,23 @@
             </div>
         </div>
     </li>
-    
+
+    <!-- Nav Item - Accounts -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeminjam"
+            aria-expanded="true" aria-controls="collapsePeminjam">
+
+            <i class="fas fa-address-book"></i>
+            <span>Peminjaman</span>
+        </a>
+        <div id="collapsePeminjam" class="collapse" aria-labelledby="headingPeminjam" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Data Peminjam :</h6>
+                <a class="collapse-item" href="/peminjam">Peminjam</a>
+            </div>
+        </div>
+    </li>
+
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
