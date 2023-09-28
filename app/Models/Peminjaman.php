@@ -16,7 +16,8 @@ class Peminjaman extends Model
         'tanggal_pinjam',
         'tanggal_kembali'
     ];
+    protected $guarded = ['id'];
     public function products(){
-        return $this->belongsTo(product::class, 'product_id');
+        return $this->belongsTo(product::class);
     }
 }

@@ -14,4 +14,7 @@ class Product extends Model
     public function Category(){
         return $this->belongsTo(Category::class);
     }
+    public function Peminjaman(){
+        return $this->hasMany(Peminjaman::class);
+    }
 }

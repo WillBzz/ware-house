@@ -4,12 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class PegawaiController extends Controller
-{   function index()
+{
+    function index()
     {
         $users = user::get();
         return view('akun.datapegawai', compact('users'));
+    }
+    function create(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email:dns', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/data-pegawai')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        user::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return back();
     }
     function detailJadi(Request $request, user $users){
         user::where('id', $request->id)->update([

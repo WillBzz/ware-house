@@ -13,12 +13,12 @@
                         <div class="form-group">
                             <label for="name">Kode Barang</label>
                             <input type="text" class="form-control" id="kode" name="kode" autocomplete="off"
-                                placeholder="Kode Barang">
+                                value="{{ $kode }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="name">Nama Barang</label>
-                            <input type="text" class="form-control" id="name" name="nama" autocomplete="off"
-                                placeholder="Nama Barang">
+                            <input type="text" class="form-control" id="name" name="name" autocomplete="off"
+                                placeholder="Nama Barang" required>
                         </div>
                         <div class="form-group">
                             <label for="kateg">Kategori</label>
@@ -30,9 +30,8 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Jumlah Barang</label>
-                            <input type="number" class="form-control" min="0"
-                                oninput="validity.valid||(value='');" id="name" autocomplete="off"
-                                placeholder="Jumlah Produk" name="jumlah">
+                            <input type="number" class="form-control" id="name" autocomplete="off"
+                                placeholder="Jumlah Produk" name="jumlah" required>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

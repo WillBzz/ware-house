@@ -3,7 +3,12 @@
 <h1 class="h3 mb-0 text-gray-800 mb-2">Data Akun Pegawai</h1>
 <div class="d-sm-flex mb-4">
     <!-- Button trigger modal -->
-    <a href="/data-pegawai/deleted" class="btn btn-secondary">Akun Pegawai Yang Dihapus</a>
+
+    <a href="/data-pegawai/deleted" class="btn btn-secondary mr-3">Akun Pegawai Yang Dihapus</a>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahModal">
+        <i class="fas fa-plus"></i>&nbsp;
+        Tambah Pegawai
+    </button>
     <!-- Modal -->
     @include('dashboard.barang.modal.pegawaiModal')
 </div>

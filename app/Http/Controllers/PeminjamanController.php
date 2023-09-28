@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\Category;
 use App\Models\Peminjaman;
 use Illuminate\Http\Request;
 
@@ -12,19 +11,18 @@ class PeminjamanController extends Controller
     function index()
     {
         $peminjam = Peminjaman::get();
-        $products = Product::get();
-        $categories = Category::get();
-        return view('akun.peminjaman', compact('peminjam', 'products', 'categories'));
+        $products = Product::select('*')->get();
+        return view('akun.peminjaman', compact('peminjam', 'products'));
     }
     function tambah(Request $request)
     {
-        $validateData = $request->validate([
-            'nama' => 'required',
-            'products_id' => 'required',
-            'jumlah_pinjam' => 'required|integer',
-            'tanggal_pinjam' => 'required|date',
-            'tanggal_kembali' => 'required|date'
+         Peminjaman::create([
+            'nama' => $request->nama,
+            'products_id' => $request->product,
+            'jumlah_pinjam' => $request->jumlah,
+            'tanggal_pinjam' => $request->tgpm,
+            'tanggal_kembali' => $request->tgkm
         ]);
-        return redirect('/peminjam');
+        return redirect('peminjam');
     }
 }

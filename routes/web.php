@@ -39,6 +39,7 @@ Route::get('/kategori-barang/deleted', [KategoriController::class, 'deleted']);
 
 // Route Pegawai
 Route::get('/data-pegawai', [PegawaiController::class, 'index']);
+Route::post('data-pegawai/create', [PegawaiController::class, 'create']);
 Route::post('/data-pegawai/detail', [PegawaiController::class, 'detailJadi']);
 Route::post('/data-pegawai/hapus', [PegawaiController::class, 'hapusJadi']);
 Route::get('/data-pegawai/restore/{user_id}', [PegawaiController::class, 'restore']);
@@ -46,7 +47,7 @@ Route::get('/data-pegawai/deleted', [PegawaiController::class, 'deleted']);
 
 // Route Peminjam
 Route::get('/peminjam', [PeminjamanController::class, 'index']);
-Route::get('/peminjam/tambah', [PeminjamanController::class, 'tambah']);
+Route::post('/peminjam/baru', [PeminjamanController::class, 'tambah'])->name('peminjam.tambah');
 
 Route::get('/login', function () {
     return view('auth.login');

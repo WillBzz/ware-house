@@ -11,12 +11,47 @@ class BarangController extends Controller
     function index(){
         $products = Product::select('*')->get();
         $categories = Category::select('*')->get();
-        return view('dashboard.barang.daftarBarang', compact(['products', 'categories']));
+        $kode = $this->generateUniqueCode();
+        return view('dashboard.barang.daftarBarang', compact(['products', 'categories', 'kode']));
     }
+    public function generateUniqueCode()
+    {
+        // variable 'characters' yang berisi karakter yang akan digunakan untuk meng-Generate kode unik
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersNumber = strlen($characters);
+        //panjang dari kode yang ingin generate
+        $codeLength = 5;
+
+        // variable kosong untuk menyimpan kode unik
+        $code = '';
+
+        // perulangan yang menggunakan panjang dari variable code sebagai kondisi
+        while (strlen($code) < $codeLength) {
+            // mengambil posisi random dari angka 0 sampai banyak karakter -1
+            $position = rand(0, $charactersNumber - 1);
+            // mengambil karakter (1) dari string characters
+            $character = $characters[$position];
+            // menambahkan code dengan character yang sudah didapat
+            $code = $code . $character;
+        }
+        // mengecek apakah di dalam tabel room terdapat kolom code yang nilai nya seperti kode yang dibuat
+        if (Product::where('kode', $code)->exists()) {
+            // jika ada, akan mengerjakan ulang fungsi
+            $this->generateUniqueCode();
+        }
+        // jika tidak, maka akan mengembalikan nilai kode yang didapat
+        return $code;
+    }
+
     function tambah(Request $request){
+        $validated = $request->validate([
+            "name" => "required|unique:products",
+            "kateg" => "required",
+            "jumlah" => "required"
+        ]);
         Product::create([
             'kode' => $request->kode,
-            'name' => $request->nama,
+            'name' => $request->name                                                         ,
             'category_id' => $request->kateg,
             'qty' => $request->jumlah
         ]);
